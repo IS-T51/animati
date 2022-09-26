@@ -1,4 +1,4 @@
-var GHPATH = '/animati';
+var GHPATH = '';
 var APP_PREFIX = 'animati_';
  
 // The version of the cache. 
