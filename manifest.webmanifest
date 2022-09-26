@@ -1,0 +1,26 @@
+{
+    "name": "Animati",
+    "short_name": "Animati",
+    "description": "Lo strumento che ogni animatore deve avere",
+  
+    "display": "standalone",
+  
+    "background_color": "#ff831c",
+    "theme_color": "#ff831c",
+  
+    "scope": "/animati/",
+    "start_url": "/animati/",
+  
+    "icons": [
+      {
+        "src": "./assets/img/logo512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "/assets/img/logo6.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      }
+    ]
+  }
