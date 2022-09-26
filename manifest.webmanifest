@@ -8,8 +8,8 @@
     "background_color": "#ff831c",
     "theme_color": "#ff831c",
   
-    "scope": "https://animati.app/",
-    "start_url": "https://animati.app/",
+    "scope": "/",
+    "start_url": ".",
   
     "icons": [
       {
