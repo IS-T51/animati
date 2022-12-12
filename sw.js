@@ -3,7 +3,7 @@ var APP_PREFIX = 'animati_';
  
 // The version of the cache. 
 // Every time you change any file you need to change this version. 
-var VERSION = 'v0_0_1';
+var VERSION = 'v0_0_2';
  
 // The files to make available for offline use. make sure to add 
 // others to this list
@@ -14,10 +14,10 @@ var URLS = [
   `${GHPATH}/assets/bootstrap/css/bootstrap.min.css`,
   `${GHPATH}/assets/bootstrap/js/bootstrap.min.js`,
 
-  `${GHPATH}/assets/css/Footer-Basic.css`,
-  `${GHPATH}/assets/css/Navigation-with-Button.css`,
-  `${GHPATH}/assets/css/Projects-Clean.css`,
   `${GHPATH}/assets/css/styles.css`,
+
+  `${GHPATH}/assets/js/jquery.min.js`,
+  `${GHPATH}/assets/js/script.js`,
 
   `${GHPATH}/assets/fonts/fa-brands-400.eot`,
   `${GHPATH}/assets/fonts/fa-brands-400.svg`,
@@ -43,7 +43,12 @@ var URLS = [
 
   `${GHPATH}/assets/img/logo.svg`,
   `${GHPATH}/assets/img/logo96.png`,
-  `${GHPATH}/assets/img/logo512.png`
+  `${GHPATH}/assets/img/logo512.png`,
+
+  `${GHPATH}/attivita/`,
+  `${GHPATH}/attivita/index.html`,
+  `${GHPATH}/attivita/script.js`,
+  `${GHPATH}/attivita/style.css`
 ]
 
 var CACHE_NAME = APP_PREFIX + VERSION

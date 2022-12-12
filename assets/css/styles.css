@@ -6,3 +6,7 @@
   --bs-dark: #232323;
 }
 
+body {
+  color: var(--bs-dark);
+  background: var(--bs-secundary);
+}
