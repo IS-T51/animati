@@ -3,7 +3,7 @@ var APP_PREFIX = 'animati_';
  
 // The version of the cache. 
 // Every time you change any file you need to change this version. 
-var VERSION = 'v0_0_2';
+var VERSION = 'v0_1_0';
  
 // The files to make available for offline use. make sure to add 
 // others to this list
@@ -45,10 +45,100 @@ var URLS = [
   `${GHPATH}/assets/img/logo96.png`,
   `${GHPATH}/assets/img/logo512.png`,
 
-  `${GHPATH}/attivita/`,
-  `${GHPATH}/attivita/index.html`,
-  `${GHPATH}/attivita/script.js`,
-  `${GHPATH}/attivita/style.css`
+  `${GHPATH}/attività/`,
+  `${GHPATH}/attività/index.html`,
+  `${GHPATH}/attività/script.js`,
+  `${GHPATH}/attività/style.css`,
+
+  `${GHPATH}/attività/crea/`,
+  `${GHPATH}/attività/crea/index.html`,
+  `${GHPATH}/attività/crea/script.js`,
+  `${GHPATH}/attività/crea/style.css`,
+
+  `${GHPATH}/attività/modifica/`,
+  `${GHPATH}/attività/modifica/index.html`,
+  `${GHPATH}/attività/modifica/script.js`,
+  `${GHPATH}/attività/modifica/style.css`,
+
+  `${GHPATH}/auth/`,
+  `${GHPATH}/auth/index.html`,
+  `${GHPATH}/auth/script.js`,
+  `${GHPATH}/auth/style.css`,
+
+  `${GHPATH}/catalogo/`,
+  `${GHPATH}/catalogo/index.html`,
+  `${GHPATH}/catalogo/script.js`,
+  `${GHPATH}/catalogo/style.css`,
+
+  `${GHPATH}/lista/`,
+  `${GHPATH}/lista/index.html`,
+  `${GHPATH}/lista/script.js`,
+  `${GHPATH}/lista/style.css`,
+
+  `${GHPATH}/lista/esporta/`,
+  `${GHPATH}/lista/esporta/index.html`,
+  `${GHPATH}/lista/esporta/script.js`,
+  `${GHPATH}/lista/esporta/style.css`,
+
+  `${GHPATH}/liste/`,
+  `${GHPATH}/liste/index.html`,
+  `${GHPATH}/liste/script.js`,
+  `${GHPATH}/liste/style.css`,
+
+  `${GHPATH}/login/`,
+  `${GHPATH}/login/index.html`,
+  `${GHPATH}/login/script.js`,
+  `${GHPATH}/login/style.css`,
+
+  `${GHPATH}/logout/`,
+  `${GHPATH}/logout/index.html`,
+  `${GHPATH}/logout/script.js`,
+  `${GHPATH}/logout/style.css`,
+
+  `${GHPATH}/profilo/`,
+  `${GHPATH}/profilo/index.html`,
+  `${GHPATH}/profilo/script.js`,
+  `${GHPATH}/profilo/style.css`,
+
+  `${GHPATH}/tools/`,
+  `${GHPATH}/tools/index.html`,
+  `${GHPATH}/tools/script.js`,
+  `${GHPATH}/tools/style.css`,
+
+  `${GHPATH}/tools/cronometro/`,
+  `${GHPATH}/tools/cronometro/index.html`,
+  `${GHPATH}/tools/cronometro/script.js`,
+  `${GHPATH}/tools/cronometro/style.css`,
+
+  `${GHPATH}/tools/dado/`,
+  `${GHPATH}/tools/dado/index.html`,
+  `${GHPATH}/tools/dado/script.js`,
+  `${GHPATH}/tools/dado/style.css`,
+
+  `${GHPATH}/tools/fischietto/`,
+  `${GHPATH}/tools/fischietto/index.html`,
+  `${GHPATH}/tools/fischietto/script.js`,
+  `${GHPATH}/tools/fischietto/style.css`,
+
+  `${GHPATH}/tools/segnapunti/`,
+  `${GHPATH}/tools/segnapunti/index.html`,
+  `${GHPATH}/tools/segnapunti/script.js`,
+  `${GHPATH}/tools/segnapunti/style.css`,
+
+  `${GHPATH}/tools/squadre/`,
+  `${GHPATH}/tools/squadre/index.html`,
+  `${GHPATH}/tools/squadre/script.js`,
+  `${GHPATH}/tools/squadre/style.css`,
+
+  `${GHPATH}/tools/timer/`,
+  `${GHPATH}/tools/timer/index.html`,
+  `${GHPATH}/tools/timer/script.js`,
+  `${GHPATH}/tools/timer/style.css`,
+
+  `${GHPATH}/utenti/`,
+  `${GHPATH}/utenti/index.html`,
+  `${GHPATH}/utenti/script.js`,
+  `${GHPATH}/utenti/style.css`
 ]
 
 var CACHE_NAME = APP_PREFIX + VERSION
