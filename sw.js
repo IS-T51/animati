@@ -14,9 +14,9 @@ var URLS = [
   `${GHPATH}/assets/bootstrap/css/bootstrap.min.css`,
   `${GHPATH}/assets/bootstrap/js/bootstrap.min.js`,
 
-  `${GHPATH}/assets/css/styles.css`,
+  `${GHPATH}/assets/css/style.css`,
 
-  `${GHPATH}/assets/js/jquery.min.js`,
+  `${GHPATH}/assets/js/jquery-3.6.1.min.js`,
   `${GHPATH}/assets/js/script.js`,
 
   `${GHPATH}/assets/fonts/fa-brands-400.eot`,
