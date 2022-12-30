@@ -162,6 +162,9 @@ self.addEventListener('install', function (e) {
     caches.open(CACHE_NAME).then(function (cache) {
       console.log('Installing cache : ' + CACHE_NAME);
       return cache.addAll(URLS)
+    }).catch(function (err) {
+      console.log('Failed to install cache : ' + CACHE_NAME);
+      console.log(err);
     })
   )
 })
