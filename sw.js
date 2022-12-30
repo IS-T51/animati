@@ -3,7 +3,7 @@ var APP_PREFIX = 'animati_';
 
 // The version of the cache. 
 // Every time you change any file you need to change this version. 
-var VERSION = 'v0_1_1';
+var VERSION = 'v0_1_2';
 
 // The files to make available for offline use. make sure to add 
 // others to this list
