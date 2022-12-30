@@ -158,16 +158,12 @@ self.addEventListener('fetch', function (e) {
 })
 
 self.addEventListener('install', function (e) {
-  try {
-    e.waitUntil(
-      caches.open(CACHE_NAME).then(function (cache) {
-        console.log('Installing cache : ' + CACHE_NAME);
-        return cache.addAll(URLS)
-      })
-    )
-  } catch (err) {
-    console.log(err)
-  }
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(function (cache) {
+      console.log('Installing cache : ' + CACHE_NAME);
+      return cache.addAll(URLS)
+    })
+  )
 })
 
 self.addEventListener('activate', function (e) {
