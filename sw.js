@@ -162,14 +162,14 @@ self.addEventListener('install', function (e) {
     caches.open(CACHE_NAME).then(function (cache) {
       console.log('Installing cache : ' + CACHE_NAME);
       return Promise.all(URLS.map(function (urlToPrefetch) {
-        return new Promise(() => {
-          cache.add(urlToPrefetch)
-        }).then(function (response) {
+        return cache.add(urlToPrefetch)
+        .then(function (response) {
           if (response) {
             console.log('Cached response for : ' + urlToPrefetch);
           }
         }).catch(function (error) {
           console.log('Failed to cache : ' + urlToPrefetch);
+          console.log(error);
         })
       }))
     })
