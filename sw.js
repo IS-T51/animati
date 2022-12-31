@@ -3,7 +3,7 @@ var APP_PREFIX = 'animati_';
 
 // The version of the cache. 
 // Every time you change any file you need to change this version. 
-var VERSION = 'v0_1_3';
+var VERSION = 'v0_1_4';
 
 // The files to make available for offline use. make sure to add 
 // others to this list
@@ -11,6 +11,7 @@ var URLS = [
   `${GHPATH}/`,
   `${GHPATH}/index.html`,
 
+  `${GHPATH}/assets/bootstrap/css/bootstrap.min.css.map`,
   `${GHPATH}/assets/bootstrap/css/bootstrap.min.css`,
   `${GHPATH}/assets/bootstrap/js/bootstrap.min.js`,
 
@@ -143,6 +144,7 @@ var URLS = [
 
 var CACHE_NAME = APP_PREFIX + VERSION
 self.addEventListener('fetch', function (e) {
+/*self.addEventListener('fetch', function (e) {
   console.log('Fetch request : ' + e.request.url);
   e.respondWith(
     caches.match(e.request).then(function (request) {
@@ -191,4 +193,4 @@ self.addEventListener('activate', function (e) {
       }))
     })
   )
-})
+})*/

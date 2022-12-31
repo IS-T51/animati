@@ -9,4 +9,7 @@ let hd = searchParams.get('hd')
 // Ottengo il mio token
 fetch('https://api.animati.app/google?code='+encodeURIComponent(code))
 .then((response) => response.json())
-.then((token) => console.log(token));
+.then((data) => {
+    setCookie('token', data.token, 7);
+    window.location.replace(location.origin);
+});
