@@ -3,7 +3,7 @@ var APP_PREFIX = 'animati_';
 
 // The version of the cache. 
 // Every time you change any file you need to change this version. 
-var VERSION = 'v0_1_2';
+var VERSION = 'v0_1_3';
 
 // The files to make available for offline use. make sure to add 
 // others to this list
@@ -60,10 +60,10 @@ var URLS = [
   `${GHPATH}/attività/modifica/script.js`,
   `${GHPATH}/attività/modifica/style.css`,
 
-  `${GHPATH}/auth/`,
-  `${GHPATH}/auth/index.html`,
-  `${GHPATH}/auth/script.js`,
-  `${GHPATH}/auth/style.css`,
+  `${GHPATH}/google/`,
+  `${GHPATH}/google/index.html`,
+  `${GHPATH}/google/script.js`,
+  `${GHPATH}/google/style.css`,
 
   `${GHPATH}/catalogo/`,
   `${GHPATH}/catalogo/index.html`,
