@@ -27,99 +27,8 @@
 </head>
 
 <body>
+    <div id="header"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-primary navbar-light ">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href="/">
-                <img src="/assets/img/logo.svg" alt="Animati" width="30" height="24">
-                Animati
-            </a>
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <!-- Pages -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/catalogo/">Catalogo</a>
-                    </li>
-                    <!-- Strumenti -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Strumenti
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="/tools/">Lista completa</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/tools/squadre/">Creazione Squadre</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/tools/cronometro/">Cronometro</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/tools/dado/">Dado</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/tools/fischietto/">Fischietto</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/tools/segnapunti/">Segnapunti</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="/tools/timer/">Timer</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item nav-item-autenticato hidden">
-                        <a class="nav-link" id="listaPreferiti" href="#">Preferiti</a>
-                    </li>
-                    <li class="nav-item nav-item-autenticato hidden">
-                        <a class="nav-link" href="/liste/">Liste</a>
-                    </li>
-                    <li class="nav-item nav-item-autenticato hidden">
-                        <a class="nav-link" id="creaAttivita" href="/attività/crea/">Proponi attività</a>
-                    </li>
-                    <li class="nav-item nav-item-amministratore hidden">
-                        <a class="nav-link" href="/segnalazioni/">Segnalazioni</a>
-                    </li>
-                    <li class="nav-item nav-item-amministratore hidden">
-                        <a class="nav-link" href="/utenti/">Gestione utenti</a>
-                    </li>
-
-                </ul>
-                <!-- Social -->
-                <ul class="navbar-nav d-flex flex-row me-1">
-                    <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="https://github.com/is-t51/animati" target="_blank"><i class="fab fa-github"></i></a>
-                    </li>
-                    <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="https://api.animati.app/docs/" target="_blank"><i class="fa fa-solid fa-book"></i></a>
-                    </li>
-                    <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="/profilo/"><i class="fa fa-solid fa-user"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar -->
-
-    <!-- Body -->
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-md-9 col-lg-7 col-xl-5">
@@ -133,16 +42,15 @@
                         <h5 class="my-3" id="errore">Caricamento...</h5>
                         <p class="text-muted mb-1 hidden" id="ruolo"></p>
                         <p class="text-muted mb-1 hidden" id="promossoDa"></p>
-                        <div class="d-flex justify-content-center mb-2">
-                            <button type="button" class="btn btn-primary hidden" id="catalogoAutore">Visualizza
-                                Attivit&agrave;</button>
+                        <div class="d-flex justify-content-center mb-3">
+                            <button type="button" class="btn btn-primary hidden me-1 flex-grow-1" id="catalogoAutore">Visualizza Attivit&agrave;</button>
+                            <button type="button" class="btn btn-danger flex-grow-1" id="logout">Logout</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Body -->
 
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

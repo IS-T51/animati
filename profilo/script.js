@@ -1,6 +1,7 @@
 // Script per la pagina `/profilo`
 
-fetch('https://api.animati.app/utente', {
+$(()=>{
+    fetch(`${URL}/utente`, {
         headers: {
             Authorization: `Bearer ${getCookie('token')}`
         }
@@ -16,17 +17,13 @@ fetch('https://api.animati.app/utente', {
             location.href=`/catalogo?autore=${data._id}`
         }).show();
         if(data.ruolo == 'amministratore'){
-            fetch(`https://api.animati.app/utente/${data.promossoDa}/attivita`, {
-                headers: {
-                    Authorization: `Bearer ${getCookie('token')}`
-                }
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                $('#promossoDa').text(`Promosso da: ${data.email}`).show();
-            })
+            $('#promossoDa').text(`Promosso da #${data.promossoDa}`).show();
         }
     }).catch((error) => {
         $('#caricamento').hide();
         $('#errore').text('Errore: ' + error);
     });
+    $('#logout').click(()=>{
+        location.href = '/logout';
+    });
+})

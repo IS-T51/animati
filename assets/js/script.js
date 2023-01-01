@@ -1,3 +1,5 @@
+const URL = 'http://api.animati.app';
+
 function setCookie(name,value,days) {
     var expires = "";
     if (days) {
@@ -45,15 +47,22 @@ function ruolo() {
     return JSON.parse(jsonPayload).ruolo;
 }
 
-$(document).ready(function() {
-    var id = _id();
-    if(id != null) {
-        $('.nav-item-autenticato').removeClass('hidden');
-        $('#listaPreferiti').attr('href', `/lista?id=${id}`);
-    }
-    if(ruolo() == 'amministratore') {
-        $('#creaAttivita').text('Crea attività');
-        $('.nav-item-amministratore').removeClass('hidden');
-    }
+$(() => {
+    $('#header').load('/assets/html/header.html', () => {
+        var id = _id();
+        if(id != null) {
+            $('.nav-item-autenticato').removeClass('hidden');
+            $('#login').attr('href', `/profilo/`).attr('data-bs-title', 'Profilo utente');
+            $('#listaPreferiti').attr('href', `/lista?id=${id}`);
+        }
+        if(ruolo() == 'amministratore') {
+            $('#creaAttivita').text('Crea attività');
+            $('.nav-item-amministratore').removeClass('hidden');
+        }
+        
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    });
+    //$('#footer').load('/footer.html');
 
 });
