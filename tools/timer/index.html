@@ -30,18 +30,19 @@
     <a href="..">Indietro</a><br/>
     <br/>   
     <div class="timer">
+      <div class="container">
         <div class="row">
           <div class="col-md-4">
             <div class="row"><p>ore<p></div>
             <div class="row counter">
               <div class="col-md-2">
-                <button class="btn btn-default" id="hDec">-</button>        
+                <button class="btn btn-primary" id="hDec">-</button>        
               </div>
               <div class="col-md-2">
                 <div id="h"></div>
               </div>
               <div class="col-md-2">
-                <button class="btn btn-default" id="hInc">+</button>
+                <button class="btn btn-primary" id="hInc">+</button>
               </div>
             </div>
           </div>
@@ -50,13 +51,13 @@
             <div class="row"><p>minuti<p></div>
             <div class="row counter">
               <div class="col-md-2">
-                <button class="btn btn-default" id="mDec">-</button>        
+                <button class="btn btn-primary" id="mDec">-</button>        
               </div>
               <div class="col-md-2">
                 <div id="m"></div>
               </div>
               <div class="col-md-2">
-                <button class="btn btn-default" id="mInc">+</button>
+                <button class="btn btn-primary" id="mInc">+</button>
               </div>
             </div>
           </div>
@@ -65,45 +66,48 @@
             <div class="row"><p>secondi<p></div>
             <div class="row counter">
               <div class="col-md-2">
-                <button class="btn btn-default" id="sDec">-</button>        
+                <button class="btn btn-primary" id="sDec">-</button>        
               </div>
               <div class="col-md-2">
                 <div id="s"></div>
               </div>
               <div class="col-md-2">
-                <button class="btn btn-default" id="sInc">+</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="container">
-              <button id="button1" type="button" class="btn btn-primary">Avvia</button>
-              <button id="button2" type="button" class="btn btn-primary">Pausa</button><br/>
-          </div>
-          <br/>
-          <br/>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-1">
-                <div class="dropdown">
-                  <button id="nome_dropdown" class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled">Suono 1</button>
-                  <div class="dropdown-menu" id="menu">
-                    <li><button type="button" class="dropdown-item" id="suono1">Suono1</button></li>
-                    <li><button type="button" class="dropdown-item" id="suono2">Suono2</button></li>
-                    <li><button type="button" class="dropdown-item" id="suono3">Suono3</button></li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-1">
-                <button id="stop" type="button" class="btn btn-primary" disabled="true">Stop</button>
+                <button class="btn btn-primary" id="sInc">+</button>
               </div>
             </div>
           </div>
         </div>
         <br/>
         <br/>
-        <div id="timer"></div>
+        <div class="container">
+            <button id="button1" type="button" class="btn btn-primary">Avvia</button>
+            <button id="button2" type="button" class="btn btn-primary">Pausa</button><br/>
+        </div>
+        <br/>
+        <br/>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-1">
+              <div class="dropdown">
+                <button id="nome_dropdown" class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled">Suono 1</button>
+                <div class="dropdown-menu" id="menu">
+                  <li><button type="button" class="dropdown-item" id="suono1">Suono1</button></li>
+                  <li><button type="button" class="dropdown-item" id="suono2">Suono2</button></li>
+                  <li><button type="button" class="dropdown-item" id="suono3">Suono3</button></li>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <button id="stop" type="button" class="btn btn-primary" disabled="true">Stop</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div class="container"><div id="timer"></div></div>
+    </div>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    
+    <div/>
 </body>
 </html>
