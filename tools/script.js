@@ -1,1 +1,1 @@
-// Script per la pagina `/attivita`
+// Script per la pagina `/tools`

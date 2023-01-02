@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="canonical" href="https://animati.app/" />
     <link rel="manifest" href="/manifest.webmanifest">
 
@@ -24,16 +25,73 @@
     <script src="/assets/js/script.js"></script>
     <script src="script.js"></script>
 </head>
+
 <body>
     <div id="header"></div>
-    
+
     <div class="container py-5 h-100">
         <h1>Catalogo</h1>
+        <div class="w-100 me-4">
+            <button class="btn btn-primary ms-auto float-end" type="button" data-bs-toggle="collapse" data-bs-target="#filtri"
+                aria-expanded="false" aria-controls="filtri">
+                Filtra <i class="fas fa-filter"></i>
+            </button>
+        </div>
         <p class="lead">Qui puoi trovare tutte le attivit&agrave;.</p>
+        <div class="collapse mb-4" id="filtri">
+            <div class="card card-body">
+                <form id="attività" class="row">
+                    <div class="mb-1 col-12">
+                        <label for="filtro_titolo" class="form-label">Titolo</label>
+                        <input type="text" maxlength="128" minlength="0" class="form-control"
+                            id="filtro_titolo" name="filtro.titolo" placeholder="Contenenti nel titolo...">
+                    </div>
+                    <div class="mb-1 col-12">
+                        <label for="filtro_descrizione" class="form-label">Descrizione</label>
+                        <input type="text" maxlength="128" minlength="0" class="form-control"
+                            id="filtro_descrizione" name="filtro.descrizione" placeholder="Contenenti nella descrizione...">
+                    </div>
+                    
+                    <div class="mb-1 col-md-6 col-lg-4 col-xl-4">
+                        <label for="filtro_etàMin" class="form-label">Età</label>
+                        <div class="input-group text-center">
+                            <input type="number" min="1" max="99" placeholder="Per persone di..." aria-label="Età"
+                                class="form-control" id="filtro_età" name="filtro.età">
+                            <span class="input-group-text">anni</span>
+                        </div>
+                    </div>
+                    <div class="mb-1 col-md-6 col-lg-4 col-xl-4">
+                        <label for="filtro_giocatori" class="form-label">Giocatori</label>
+                        <input type="number" min="1" max="99" placeholder="0" aria-label="Giocatori"
+                        class="form-control" id="filtro_giocatori" name="filtro.giocatori">
+                    </div>
+                    <div class="mb-3 col-md-6 col-lg-4 col-xl-4">
+                        <label for="filtro_durata" class="form-label">Durata</label>
+                        <div class="input-group text-center">
+                            <input type="number" min="0" placeholder="60" aria-label="Durata"
+                                class="form-control" id="filtro_durata" name="filtro.durata">
+                            <select class="form-select" id="filtro_durataUnità" name="filtro.durataUnità">
+                                <option selected value="1">minuti</option>
+                                <option value="60">ore</option>
+                                <option value="1440">giorni</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-1 col-md-4 offset-md-2 col-lg-3 offset-lg-9">
+                        <label class="form-label d-none d-md-block d-lg-none invisible">Applica</label>
+                        <div class="input-group d-flex">
+                        <button type="submit" class=" form-control btn btn-primary ms-auto">Applica filtri</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
         <div class="row d-flex justify-content-center top-buffer" id="catalogo">
         </div>
     </div>
 
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>

@@ -1,1 +1,7 @@
 /* Foglio di stile per la pagina `/attivita` */
+
+.card-img-top{
+    object-fit: cover;
+    height: 150px;
+    max-width: 100%;
+}

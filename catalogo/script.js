@@ -1,21 +1,15 @@
 // Script per la pagina `/catalogo`
 
 // Ottieni filtro da query string
-const query = new URLSearchParams(window.location.search);
-console.log(query)
-const filtro = {}
-query.forEach((value, key) => {
-    filtro[key] = value
-});
+var query = new URLSearchParams(window.location.search);
 
 $(()=>{
-    searchParams = new URLSearchParams();
-    // Ottieni query string
-    Object.entries(filtro).forEach(([key, value]) => {
-        searchParams.set(key, value);
+    query.forEach((value, key) => {
+        $(`#filtro_${key.replace(/Min$/,'').replace(/Max$/, '')}`).val(value);
     });
 
-    fetch(`${URL}/catalogo?${searchParams.toString()}`)
+    // Ottieni attività
+    fetch(`${URL}/catalogo?${query.toString()}`)
     .then(response => response.json())
     .then(data => {
         if(data.length == 0) {
@@ -32,7 +26,7 @@ $(()=>{
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="card mb-4">
                         <div class="card-header text-center">
-                            <h2 class="card-title">${attivita.informazioni.titolo}</h2>
+                            <h4 class="card-title">${attivita.informazioni.titolo}</h4>
                         </div>
                         <img src="${attivita.banner}" class="card-img-top" referrerpolicy="no-referrer" alt="Immagine dell'attività"></img>
                         <div class="card-body text-center">
@@ -43,4 +37,29 @@ $(()=>{
             `)
         })
     })
+
+    // Aggiungi filtro
+    $('#filtri').on('submit', (e) => {
+        var filtro = {};
+        filtro.titolo = $('#filtro_titolo').val();
+        filtro.descrizione = $('#filtro_descrizione').val();
+        filtro.giocatoriMin = parseInt($('#filtro_giocatori').val());
+        filtro.giocatoriMax = parseInt($('#filtro_giocatori').val());
+        filtro.durataMin = parseInt($('#filtro_durata').val())*parseInt($('#durataUnità').val());
+        filtro.durataMax = parseInt($('#filtro_durata').val());
+        filtro.etàMin = parseInt($('#filtro_età').val());
+        filtro.etàMax = parseInt($('#filtro_età').val());
+
+        console.log(filtro);
+
+        var searchParams = new URLSearchParams();
+        Object.entries(filtro).forEach(([key, value]) => {
+            console.log(key, value)
+            if(value) searchParams.set(key, value);
+        });
+        
+        window.location.search = searchParams.toString();
+        
+        e.preventDefault();
+    });
 })

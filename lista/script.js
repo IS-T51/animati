@@ -26,17 +26,48 @@ $(()=>{
         $('#ultimaModifica').text(`Ultima modifica: ${ultimaModifica.toLocaleDateString()} ${ultimaModifica.toLocaleTimeString()}`).show();
         
         data['attività'].forEach((attivita, index) => {
+            var elemento = $(`<li class="list-group-item d-flex">Caricamento...</li>`);
             fetch(`${URL}/attivita/${attivita}`)
             .then((response) => response.json())
             .then((attivita) => {
-                var elemento = $(`<li class="list-group-item d-flex"></li>`);
-                elemento.append(`<a href="/attività/?id=${attivita._id}">${attivita.informazioni.titolo}</a>`);
-                var elimina = $(`<button type="button" class="btn ms-auto" data-toggle="modal" data-target="#modalElimina index=${index}"><i class="fa fa-solid fa-trash"></i></button>`);
+                elemento.html(`<a href="/attività/?id=${attivita._id}" class="lead">${attivita.informazioni.titolo}</a>`);
+                var elimina = $(`<button type="button" class="btn ms-auto" data-bs-toggle="modal" data-bs-target="#modalElimina" data-bs-index="${index}"><i class="fa fa-solid fa-trash"></i></button>`);
                 elemento.append(elimina);
-                $('#lista').append(elemento).show();
+            })
+            $('#lista').append(elemento).show();
+        });
+
+        const errorModal = $('#modalElimina');
+        errorModal.on('show.bs.modal', e => {
+            const confermaElimina = $('#confermaElimina');
+            const index = e.relatedTarget.getAttribute('data-bs-index');
+            confermaElimina.attr('data-bs-index', index)
+            if (index == -1) {
+                $('#modalElimina .modal-body').text('Sei sicuro di voler eliminare la lista?');
+            } else {
+                $('#modalElimina .modal-body').text('Sei sicuro di voler eliminare l\'attività dalla lista?');
+            }
+
+            confermaElimina.off('click');
+            confermaElimina.on('click', () => {
+                var index = confermaElimina.attr('data-bs-index');
+                console.log(index)
+                var removeUrl = index == -1 ? `${URL}/lista/${id}` : `${URL}/lista/${id}/${index}`;
+                                
+                fetch(removeUrl, {
+                    method: 'DELETE',
+                    headers: {
+                        Authorization : `Bearer ${getCookie('token')}`
+                    }
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    location.reload();
+                })
             })
         })
         
+        if(id == _id()) $('#elimina').attr('disabled', true);
         $('#elimina').show();
         $('#esporta').show();
 

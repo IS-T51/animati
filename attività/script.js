@@ -39,8 +39,8 @@ $(()=>{
         if(ruolo() == 'amministratore' || _id() == data.autore) {
             $('#modifica').attr('disabled', false);
         }
-        $('#modifica').show();
-        $('#aggiungiAListe,#aggiungiAListe button').show();
+        
+        if(_id()) $('#bottoniAutenticato').show();
     }).catch((error) => {
         $('#caricamento').hide();
         $('#errore').text('Errore: ' + error);
@@ -70,7 +70,7 @@ $(()=>{
     })
 
     $('#modifica').on('click', ()=>{
-        location.href=`/attività/modifica?id=${id}`
+        location.href=`/attivit%C3%A0/modifica?id=${id}`
     })
 
 
