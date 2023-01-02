@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Animati - Attività - Crea</title>
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/css/markdown-editor.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="canonical" href="https://animati.app/" />
     <link rel="manifest" href="/manifest.webmanifest">
 
@@ -20,15 +22,127 @@
     <meta name="mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-title" content="Animati" />
 
-    <script src="/assets/js/jquery-3.6.1.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/jquery-3.6.1.min.js" type="text/javascript"></script>
+    <script src="/assets/js/purify.min.js" type="text/javascript"></script>
+    <script src="/assets/js/markdown-it.min.js" type="text/javascript"></script>
+    <script src="/assets/js/markdown-editor.min.js" type="text/javascript"></script>
+    <script src="/assets/js/script.js" type="text/javascript"></script>
     <script src="script.js"></script>
 </head>
+
 <body>
     <div id="header"></div>
-    <h1>Crea attivit&agrave;</h1><br/>
-    <a href="/">Homepage</a><br/>
-    <a href="..">Indietro</a>
+
+    <div class="container py-5 h-100">
+        <h1 id="nomePagina">Proponi attivit&agrave;</h1>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-md-12 col-lg-9 col-xl-9">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <form id="attività">
+                            <div class="mb-3">
+                                <label for="informazioni_titolo" class="form-label">Titolo *</label>
+                                <input type="text" maxlength="10" minlength="1" required class="form-control"
+                                    id="informazioni_titolo" placeholder="Titolo dell'Attività">
+                            </div>
+                            <div class="mb-3">
+                                <label for="banner" class="form-label">URL del Banner *</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-link"></i>
+                                    </span>
+                                    <input type="text" maxlength="512" minlength="1" required class="form-control"
+                                        id="banner" placeholder="https://picsum.photos/700/300">
+                                </div>
+                                <img id="bannerPreview" class="mx-auto" src="https://picsum.photos/700/300"
+                                    alt="Banner Preview" referrerpolicy="no-referrer">
+                            </div>
+                            <div class="mb-3">
+                                <label for="informazioni_descrizione" class="form-label">Descrizione *</label>
+                                <textarea id="informazioni_descrizione" rows="16" required maxlength="4096"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="informazioni_etàMin" class="form-label">Età *</label>
+                                <div class="input-group text-center">
+                                    <span class="input-group-text">Da:</span>
+                                    <input type="number" min="0" placeholder="0" required aria-label="Età minima"
+                                        class="form-control" id="informazioni_etàMin">
+                                    <span class="input-group-text">A:</span>
+                                    <input type="number" min="0" placeholder="100" required aria-label="Età massima"
+                                        class="form-control" id="informazioni_etàMax">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="informazioni_giocatoriMin" class="form-label">Giocatori *</label>
+                                <div class="input-group text-center">
+                                    <span class="input-group-text">Da:</span>
+                                    <input type="number" min="1" required placeholder="1" aria-label="Giocatori minimi"
+                                        class="form-control" id="informazioni_giocatoriMin">
+                                    <span class="input-group-text">A:</span>
+                                    <input type="number" min="1" required placeholder="4" aria-label="Giocatori massimi"
+                                        class="form-control" id="informazioni_giocatoriMax">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="informazioni_durataMin" class="form-label">Durata *</label>
+                                <div class="input-group text-center">
+                                    <span class="input-group-text">Da:</span>
+                                    <input type="number" min="0" required placeholder="0" aria-label="Durata minima"
+                                        class="form-control" id="informazioni_durataMin">
+                                    <span class="input-group-text">A:</span>
+                                    <input type="number" min="0" required placeholder="60" aria-label="Durata massima"
+                                        class="form-control" id="informazioni_durataMax">
+                                    <select class="form-select" id="informazioni_durataUnità">
+                                        <option selected value="1">minuti</option>
+                                        <option value="60">ore</option>
+                                        <option value="1440">giorni</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="informazioni_squadre" class="form-label">Squadre</label>
+                                <div class="input-group text-center">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input mt-0" id="informazioni_squadre" type="checkbox"
+                                            value="" aria-label="Checkbox for following text input">
+                                    </div>
+                                    <input type="number" min="1" placeholder="2" disabled aria-label="Numero squadre"
+                                        class="form-control" id="informazioni_numeroSquadre">
+                                    <span class="input-group-text"> squadre da </span>
+                                    <input type="number" min="0" placeholder="4" disabled
+                                        aria-label="Giocatori per squadra" class="form-control"
+                                        id="informazioni_giocatoriPerSquadra">
+                                    <span class="input-group-text">giocatori</span>
+                                </div>
+                            </div>
+                            <div class="mb-1 row">
+                                <label for="collegamento_nome" class="form-label">Collegamenti</label>
+                                <div class="input-group text-center">
+                                    <input type="string" placeholder="Fischietto" aria-label="Nome del collegamento"
+                                        class="form-control" id="collegamento_nome">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-link"></i>
+                                    </span>
+                                    <input type="string" placeholder="https://animati.app/tools/fischietto"
+                                        aria-label="URL del collegamento" class="form-control" id="collegamento_link">
+                                    <button class="btn btn-success" type="button" id="collegamento_aggiungi">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="collegamenti" class="mb-3 row"></div>
+
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary" id="crea">Crea Attività</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>

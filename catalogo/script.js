@@ -31,11 +31,11 @@ $(()=>{
             $('#catalogo').append(`
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">${attivita.informazioni.titolo}</h5>
+                        <div class="card-header text-center">
+                            <h2 class="card-title">${attivita.informazioni.titolo}</h2>
                         </div>
-                        <img src="${attivita.banner}" class="card-img-top" alt="Immagine dell'attività"></img>
-                        <div class="card-body">
+                        <img src="${attivita.banner}" class="card-img-top" referrerpolicy="no-referrer" alt="Immagine dell'attività"></img>
+                        <div class="card-body text-center">
                             <a href="/attività?id=${attivita._id}" class="btn btn-primary">Vai all'attività</a>
                         </div>
                     </div>

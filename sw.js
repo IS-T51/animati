@@ -3,7 +3,7 @@ var APP_PREFIX = 'animati_';
 
 // The version of the cache. 
 // Every time you change any file you need to change this version. 
-var VERSION = 'v0_1_5';
+var VERSION = 'v0_2_0';
 
 // The files to make available for offline use. make sure to add 
 // others to this list
@@ -11,14 +11,16 @@ var URLS = [
   `${GHPATH}/`,
   `${GHPATH}/index.html`,
 
-  `${GHPATH}/assets/bootstrap/css/bootstrap.min.css.map`,
   `${GHPATH}/assets/bootstrap/css/bootstrap.min.css`,
-  `${GHPATH}/assets/bootstrap/js/bootstrap.min.js.map`,
   `${GHPATH}/assets/bootstrap/js/bootstrap.min.js`,
 
+  `${GHPATH}/assets/css/markdown-editor.min.css`,
   `${GHPATH}/assets/css/style.css`,
 
   `${GHPATH}/assets/js/jquery-3.6.1.min.js`,
+  `${GHPATH}/assets/js/purify.min.js`,
+  `${GHPATH}/assets/js/markdown-it.min.js`,
+  `${GHPATH}/assets/js/markdown-editor.min.js`,
   `${GHPATH}/assets/js/script.js`,
 
   `${GHPATH}/assets/fonts/fa-brands-400.eot`,
@@ -62,10 +64,10 @@ var URLS = [
   `${GHPATH}/attività/modifica/script.js`,
   `${GHPATH}/attività/modifica/style.css`,
 
-  `${GHPATH}/google/`,
+  /*`${GHPATH}/google/`,
   `${GHPATH}/google/index.html`,
   `${GHPATH}/google/script.js`,
-  `${GHPATH}/google/style.css`,
+  `${GHPATH}/google/style.css`,*/
 
   `${GHPATH}/catalogo/`,
   `${GHPATH}/catalogo/index.html`,
@@ -87,10 +89,10 @@ var URLS = [
   `${GHPATH}/liste/script.js`,
   `${GHPATH}/liste/style.css`,
 
-  `${GHPATH}/login/`,
+  /*`${GHPATH}/login/`,
   `${GHPATH}/login/index.html`,
   `${GHPATH}/login/script.js`,
-  `${GHPATH}/login/style.css`,
+  `${GHPATH}/login/style.css`,*/
 
   `${GHPATH}/logout/`,
   `${GHPATH}/logout/index.html`,

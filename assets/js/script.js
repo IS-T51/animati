@@ -1,4 +1,4 @@
-const URL = 'http://api.animati.app';
+const URL = 'https://api.animati.app';
 
 function setCookie(name,value,days) {
     var expires = "";
@@ -64,5 +64,4 @@ $(() => {
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     });
     //$('#footer').load('/footer.html');
-
 });

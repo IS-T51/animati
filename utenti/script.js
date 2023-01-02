@@ -48,5 +48,10 @@ $(()=>{
                 location.reload();
             })
         })
+
+        $('.catalogoAutore').click(function() {
+            const utente = $(this).attr('utente');
+            window.location.href = `/catalogo?autore=${utente}`;
+        })
     })
 });
