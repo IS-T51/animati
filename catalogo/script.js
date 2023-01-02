@@ -36,7 +36,7 @@ $(()=>{
                         </div>
                         <img src="${attivita.banner}" class="card-img-top" referrerpolicy="no-referrer" alt="Immagine dell'attività"></img>
                         <div class="card-body text-center">
-                            <a href="/attività?id=${attivita._id}" class="btn btn-primary">Vai all'attività</a>
+                            <a href="/attività/?id=${attivita._id}" class="btn btn-primary">Vai all'attività</a>
                         </div>
                     </div>
                 </div>
