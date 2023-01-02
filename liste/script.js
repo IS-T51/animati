@@ -37,5 +37,29 @@ $(()=>{
                 </div>
             `);
         });
-    })
+    });
+
+    // Aggiungi lista
+    $('#crea').on('submit', (e) => {
+        var nome = $('#nome').val();
+        
+        fetch(`${URL}/liste`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${getCookie('token')}`
+            },
+            body: JSON.stringify({nome})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.code == 201) {
+                window.location.href = `/lista?id=${data._id}`;
+            } else {
+                $('#modalErrore .modal-body').text(JSON.stringify(data));
+                $('#modalErrore').modal('show');
+            }
+        });
+        e.preventDefault();
+    });
 })

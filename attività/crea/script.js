@@ -93,8 +93,6 @@ Inserisci qui eventuali informazioni aggiuntive.`);
                 data.informazioni.giocatoriPerSquadra =  parseInt($('#informazioni_giocatoriPerSquadra').val())
             }
 
-            console.log(JSON.stringify(data))
-
             fetch(`${URL}/catalogo`, {
                 method: 'POST',
                 headers: {
@@ -105,10 +103,11 @@ Inserisci qui eventuali informazioni aggiuntive.`);
             }).then(async (res) => {
                 if (res.status == 200) {
                     let json = await res.json();
-                    window.location.href = `/attivit%C3%A0/?id=${data._id}`;
+                    window.location.href = `/attivit%C3%A0/?id=${json._id}`;
                 } else {
                     let json = await res.json();
-                    alert(json);
+                    $('#errore').text(JSON.stringify(json));
+                    $('#modalErrore').modal('show');
                 }
             });
 

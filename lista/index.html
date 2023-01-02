@@ -45,17 +45,19 @@
                         <p class="text-muted mb-1 hidden" id="ultimaModifica"></p>
                         <ul class="list-group list-group-flush text-start hidden" id="lista"></ul>
 
-                        <div class="d-flex justify-content-center mb-3">
+                        <div class="d-flex justify-content-center hidden mb-3" id="bottoniAutenticato">
                             <div class="dropdown hidden me-1 flex-grow-1 d-flex" id="esporta">
-                                <button class="btn btn-primary dropdown-toggle flex-grow-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Esporta lista
+                                <button class="btn btn-primary dropdown-toggle flex-grow-1" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Esporta lista
                                 </button>
                                 <ul class="dropdown-menu" id="liste">
                                     <li id="esportaJSON"><a class="dropdown-item" href="#">Formato JSON</a></li>
                                     <li id="esportaPDF"><a class="dropdown-item" href="#">Formato PDF</a></li>
                                 </ul>
                             </div>
-                            <button type="button" class="btn btn-danger hidden flex-grow-1" data-bs-index="-1" data-bs-toggle="modal" data-bs-target="#modalElimina" id="elimina">Elimina
+                            <button type="button" class="btn btn-danger flex-grow-1" data-bs-index="-1"
+                                data-bs-toggle="modal" data-bs-target="#modalElimina" id="elimina">Elimina
                                 lista</button>
                         </div>
                     </div>
@@ -65,20 +67,21 @@
     </div>
 
     <!-- Modal -->
-  <div class="modal fade" id="modalElimina" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">Conferma rimozione</h5>
-            <button type="button" class="close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body"></div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-danger" id="confermaElimina">Conferma</button>
-          </div>
+    <div class="modal fade" id="modalElimina" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Conferma rimozione</h5>
+                    <button type="button" class="close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <button type="button" class="btn btn-danger" id="confermaElimina">Conferma</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>

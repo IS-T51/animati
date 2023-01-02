@@ -62,8 +62,10 @@ $(()=>{
                     headers: {
                         Authorization: `Bearer ${getCookie('token')}`
                     }
+                }).fetch((response) => response.json())
+                .then((data) => {
+                    location.href = `/lista?id=${lista._id}`;
                 })
-                // TODO: Handle errors
             });
             $('#liste').append(aggiungi);
         });
@@ -73,5 +75,30 @@ $(()=>{
         location.href=`/attivit%C3%A0/modifica?id=${id}`
     })
 
+
+
+    $('#preferiti').on('click', ()=>{
+        fetch(`${URL}/lista/${_id()}?attivita=${id}`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${getCookie('token')}`
+            }
+        }).then((response) => response.json())
+        .then((data) => {
+            $('#preferiti').addClass('invisible');  
+        })
+    })
+
+    // Ottieni lista
+    fetch(`${URL}/lista/${_id()}`, {
+        headers: {
+            Authorization: `Bearer ${getCookie('token')}`
+        }
+    }).then((response) => response.json())
+    .then((data) => {
+        // if id is not in the list, enable the button
+        var attivita = data['attività'];
+        if(!attivita.includes(id)) $('#preferiti').removeClass('invisible')
+    });
 
 })

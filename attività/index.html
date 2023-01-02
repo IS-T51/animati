@@ -33,10 +33,20 @@
 
     <div class="container py-5 h-100">
         <h1>Attivit&agrave;</h1>
+        <p class="lead">Qui puoi visualizzare le informazioni dell'Attivit&agrave;.</p>
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-md-12 col-lg-9 col-xl-9">
                 <div class="card mb-4">
                     <div class="card-body text-center">
+                        <div class="w-100 me-4">
+                            <!--<button class="btn ms-auto float-end" type="button" id="segnala" data-bs-toggle="tooltip" data-bs-title="Segnala attività">
+                                <i class="fas fa-flag"></i>
+                            </button>-->
+                            <button class="btn ms-auto text-danger float-end invisible" type="button" id="preferiti" data-bs-toggle="tooltip" data-bs-title="Aggiungi ai preferiti">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            
+                        </div>
                         <h2 class="my-3 hidden" id="informazioni_titolo"></h2>
                         <img referrerpolicy="no-referrer" src="#" alt="Banner dell'attività" class="card-img-top hidden"
                             id="banner" />
@@ -53,7 +63,7 @@
                             <button type="button" class="btn btn-primary me-1 flex-grow-1" disabled id="modifica">Modifica
                                 attivit&agrave;</button>
                             <div class="dropdown flex-grow-1 d-flex" id="aggiungiAListe">
-                                <button class="btn btn-primary dropdown-toggle flex-grow-1 hidden" type="button"
+                                <button class="btn btn-primary dropdown-toggle flex-grow-1" type="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Aggiungi a lista
                                 </button>
@@ -61,6 +71,23 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalErrore" tabindex="-1" role="dialog" aria-labelledby="errore"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errore">Si è verificato un problema</h5>
+                    <button type="button" class="close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
                 </div>
             </div>
         </div>

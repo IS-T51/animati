@@ -62,19 +62,20 @@ $(()=>{
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                    location.reload();
+                    if(index == -1) location.href = '/liste';
+                    else location.reload();
                 })
             })
+        }).catch((error) => {
+            $('#caricamento').hide();
+            $('#errore').text('Errore: ' + error);
         })
         
         if(id == _id()) $('#elimina').attr('disabled', true);
-        $('#elimina').show();
+        $('#bottoniAutenticato').show();
         $('#esporta').show();
 
-    }).catch((error) => {
-        $('#caricamento').hide();
-        $('#errore').text('Errore: ' + error);
-    });
+    })
 
     $('#elimina').click(()=>{
         $('#modalElimina').modal('show');
@@ -83,9 +84,9 @@ $(()=>{
     $('#esportaJSON').click(()=>{
         location.href=`/lista/esporta?id=${id}&formato=json`
     })
+
     $('#esportaPDF').click(()=>{
         location.href=`/lista/esporta?id=${id}&formato=pdf`
     })
-
 
 })
