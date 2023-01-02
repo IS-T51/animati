@@ -1,1 +1,26 @@
 /* Foglio di stile per la pagina `/attività/modifica` */
+
+.md-toolbar-footer-l {
+    display: none;
+}
+
+#informazioni_descrizione {
+    resize: vertical;
+    height: 400px;
+}
+
+.md-split-mode tr {
+    height: 1px;
+}
+.md-split-mode .md-preview-cell {
+    height: inherit;
+}
+.md-split-mode .md-preview-cell .md-preview {
+    height: 100% !important;
+}
+
+#bannerPreview {
+    object-fit: cover;
+    height: 400px;
+    max-width: 100%;
+}

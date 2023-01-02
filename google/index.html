@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="canonical" href="https://animati.app/" />
     <link rel="manifest" href="/manifest.webmanifest">
 
@@ -24,11 +25,29 @@
     <script src="/assets/js/script.js"></script>
     <script src="script.js"></script>
 </head>
+
 <body>
     <!--<div id="header"></div>-->
 
-    <h1>Google</h1><br/>
-    Sto effettuando l'accesso...
+    <div class="container py-5 h-100">
+        <h1>Google</h1>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-md-12 col-lg-9 col-xl-9">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <div class="spinner-border text-primary" role="status" id="caricamento">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <h5 class="my-3" id="errore">Accesso in corso ...</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>

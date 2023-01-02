@@ -25,7 +25,7 @@ $(()=>{
         .forEach((lista) => {
             $('#liste').append(`
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card">
+                    <div class="card mb-4">
                         <div class="card-header text-center">
                             <h2 class="card-title">${lista.nome}</h2>
                         </div>
