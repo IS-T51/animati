@@ -29,7 +29,16 @@ $(()=>{
         let Markdown = window.markdownit();
         let descrizione = Markdown.render(data.informazioni.descrizione);
         $('#informazioni_descrizione').html(descrizione).show();
+        data.collegamenti.forEach((collegamento) => {
+            let col = $('<div class="col-12 col-md-6 col-lg-4 mb-1"></div>');
+            let link = $(`<a href="${collegamento.link}" target="_blank" class="btn btn-secondary w-100">${collegamento.nome} <i class="fas fa-external-link-alt"></i></a>`);
+            $('#collegamenti').append(col.append(link));
+        });
+        if(data.collegamenti) $('#collegamenti').show(); 
         
+        if(ruolo() == 'amministratore' || _id() == data.autore) {
+            $('#modifica').attr('disabled', false);
+        }
         $('#modifica').show();
         $('#aggiungiAListe,#aggiungiAListe button').show();
     }).catch((error) => {

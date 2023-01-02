@@ -19,6 +19,7 @@
 }
 
 #bannerPreview {
-    max-height: 25em;
+    object-fit: cover;
+    height: 400px;
     max-width: 100%;
 }

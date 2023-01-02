@@ -1,9 +1,10 @@
 // Script per la pagina `/attività/crea`
 
 $(document).ready(() => {
-    if (ruolo() == 'amministratore')
+    if (ruolo() == 'amministratore') {
         $('#nomePagina').text('Crea attività');
-
+        $(document).prop('title', 'Animati - Crea attività');
+    }
     $('#informazioni_descrizione').markdownEditor({
         hiddenActions: ['emoji', 'export', 'hint', 'codeblock', 'code', 'footnote', 'dl', 'newline', 'paragraph', 'del', 'ins', 'sup', 'sub', 'mark'],
         markdownItOptions: {
@@ -11,7 +12,7 @@ $(document).ready(() => {
         },
         defaultMode: ($( window ).width() > 576 ? 'split' : 'edit'),
     }).val(
-        `### Scopo dell'attività
+        `### Descrizione
 Inserisci qui l'obiettivo dell'attività.
 Puoi utilizzare il linguaggio **Markdown** per formattare il testo.
 
@@ -54,8 +55,8 @@ Inserisci qui eventuali informazioni aggiuntive.`);
         let nome = $('#collegamento_nome').val();
 
         let col = $('<div class="col-12 col-md-6 col-lg-4 mb-1"></div>');
-        let div = $('<div class=" d-flex"></div>');
-        let collegamento = $(`<a href="${link || '#'}" target="_blank" class="btn btn-primary w-100">${nome || link || 'Collegamento senza nome'}</a>`);
+        let div = $('<div class="btn-group d-flex"></div>');
+        let collegamento = $(`<a href="${link || '#'}" target="_blank" class="btn btn-secondary w-100">${nome || link || 'Collegamento senza nome'}</a>`);
         let elimina = $('<button class="btn btn-danger flex-shrink-1"><i class="fas fa-trash"></i></button>');
         elimina.on('click', () => col.remove());
         $('#collegamenti').append(
@@ -103,7 +104,7 @@ Inserisci qui eventuali informazioni aggiuntive.`);
         }).then(async (res) => {
             if (res.status == 200) {
                 let json = await res.json();
-                window.location.href = `/attività/?id=${json.attività._id}`;
+                window.location.href = `/attività/?id=${data._id}`;
             } else {
                 let json = await res.json();
                 alert(json);

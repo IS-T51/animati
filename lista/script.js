@@ -30,7 +30,7 @@ $(()=>{
             .then((response) => response.json())
             .then((attivita) => {
                 var elemento = $(`<li class="list-group-item d-flex"></li>`);
-                elemento.append(`<a href="/attivita?id=${attivita._id}">${attivita.informazioni.titolo}</a>`);
+                elemento.append(`<a href="/attività/?id=${attivita._id}">${attivita.informazioni.titolo}</a>`);
                 var elimina = $(`<button type="button" class="btn ms-auto" data-toggle="modal" data-target="#modalElimina index=${index}"><i class="fa fa-solid fa-trash"></i></button>`);
                 elemento.append(elimina);
                 $('#lista').append(elemento).show();

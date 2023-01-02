@@ -1,1 +1,6 @@
 /* Foglio di stile per la pagina `/catalogo` */
+
+.card-img-top {
+    object-fit: cover;
+    height: 150px;
+}
