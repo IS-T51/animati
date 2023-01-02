@@ -75,26 +75,34 @@
               </div>
             </div>
           </div>
-          
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-              <li><button class="dropdown-item" href="#">Suono 1</button></li>
-              <li><button class="dropdown-item" href="#">Suono 2</a></li>
-              <li><a class="dropdown-item" href="#">Suono 3</a></li>
-              <li></li>
-            </ul>
-          </div>
 
           <div class="container">
               <button id="button1" type="button" class="btn btn-primary">Avvia</button>
               <button id="button2" type="button" class="btn btn-primary">Pausa</button><br/>
           </div>
-          
-          <div id="timer"></div>
+          <br/>
+          <br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-1">
+                <div class="dropdown">
+                  <button id="nome_dropdown" class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled">Suono 1</button>
+                  <div class="dropdown-menu" id="menu">
+                    <li><button type="button" class="dropdown-item" id="suono1">Suono1</button></li>
+                    <li><button type="button" class="dropdown-item" id="suono2">Suono2</button></li>
+                    <li><button type="button" class="dropdown-item" id="suono3">Suono3</button></li>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <button id="stop" type="button" class="btn btn-primary" disabled="true">Stop</button>
+              </div>
+            </div>
+          </div>
         </div>
+        <br/>
+        <br/>
+        <div id="timer"></div>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     
 </body>

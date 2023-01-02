@@ -1,6 +1,9 @@
 // Script per la pagina `/tools/timer`
 
 $(document).ready(() =>{
+    let s1 = 'https://soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+    let s2 = 'https://soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'
+    let s3 = 'https://soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3'
     //Ore
     $("#hInc").on("click", () => {
       if ($("#h").html() >= 0 && $("#h").html()<99){
@@ -76,7 +79,7 @@ $(document).ready(() =>{
             resumeTimer();
         }
     });
-    
+
     var ore = 0;
     var minuti = 0;
     var secondi = 0;
@@ -84,9 +87,41 @@ $(document).ready(() =>{
     $("#m").html(minuti);
     $("#s").html(secondi);
     
+    let suono = new Audio(s1);
+    let dropdown = $('#nome_dropdown');
+    dropdown.disabled = false;
+    let suono1 = $('#suono1');
+    let suono2 = $('#suono2');
+    let suono3 = $('#suono3');
+    let stopButton = $('#stop');
+    suono1.on("click", () => {
+      suono = new Audio(s1);
+      dropdown.text('Suono 1');
+    });
+    suono2.on("click", () => {
+      suono = new Audio(s2);
+      dropdown.text('Suono 2');
+    });
+    suono3.on("click", () => {
+      suono = new Audio(s3);
+      dropdown.text('Suono 3');
+    });
+
+    stopButton.on("click", () => {
+      document.getElementById('stop').disabled = true;
+      document.getElementById('button1').disabled = false;
+      document.getElementById('nome_dropdown').disabled = false;
+      suono.pause();
+    });
+    
+    
     var timerId;
     var timeRemaining;
 
+    function isSound(url) {
+      return url.endsWith('.mp3') || url.endsWith('.wav') || url.endsWith('.aac') || url.endsWith('.ogg') || url.endsWith('.flac');
+    }
+    
     function startTimer(duration, display) {
       var timer = duration, hours, minutes, seconds;
       timerId = setInterval(function () {
@@ -102,6 +137,17 @@ $(document).ready(() =>{
 
         if (--timer < 0) {
           stopTimer();
+          suono.addEventListener('timeupdate', function() {
+            document.getElementById('stop').disabled = false;
+            document.getElementById('button1').disabled = true;
+            document.getElementById('nome_dropdown').disabled = true;
+          });
+          suono.addEventListener('pause', function() {
+            document.getElementById('stop').disabled = true;
+            document.getElementById('button1').disabled = false;
+            document.getElementById('nome_dropdown').disabled = false;
+          });
+          suono.play();
           button1.text('Avvia');
           button2.text('Pausa');
           button2.hide();
