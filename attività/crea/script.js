@@ -9,7 +9,7 @@ $(document).ready(() => {
         markdownItOptions: {
             html: true
         },
-        defaultMode: 'split'
+        defaultMode: ($( window ).width() > 576 ? 'split' : 'edit'),
     }).val(
         `### Scopo dell'attività
 Inserisci qui l'obiettivo dell'attività.
@@ -65,7 +65,52 @@ Inserisci qui eventuali informazioni aggiuntive.`);
         );
     });
 
-    $('#attività').on('submit', () => {
-        console.log($(this).serializeArray())
+    $('#attività').on('submit', (e) => {
+        let collegamenti = $('#collegamenti').children().map((i, e) => {
+            let link = $(e).find('a').attr('href');
+            let nome = $(e).find('a').text();
+            return { link, nome };  
+        }).get();
+
+        let data = {
+            informazioni: {
+                titolo: $('#informazioni_titolo').val(),
+                descrizione: $('#informazioni_descrizione').val(),
+                etàMin:       parseInt($('#informazioni_etàMin').val()),
+                etàMax:       parseInt($('#informazioni_etàMax').val()),
+                durataMin:    parseInt($('#informazioni_durataMin').val()) * parseInt($('#informazioni_durataUnità').val()),
+                durataMax:    parseInt($('#informazioni_durataMax').val()) * parseInt($('#informazioni_durataUnità').val()),
+                giocatoriMin: parseInt($('#informazioni_giocatoriMin').val()),
+                giocatoriMax: parseInt($('#informazioni_giocatoriMax').val()),
+            },
+            banner: $('#banner').val(),
+            collegamenti: collegamenti,
+        };
+        if ($('#informazioni_squadre').is(':checked')) {
+            data.informazioni.numeroSquadre = parseInt($('#informazioni_numeroSquadre').val()),
+            data.informazioni.giocatoriPerSquadra =  parseInt($('#informazioni_giocatoriPerSquadra').val())
+        }
+
+        console.log(JSON.stringify(data))
+
+        fetch(`${URL}/catalogo`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${getCookie('token')}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(async (res) => {
+            if (res.status == 200) {
+                let json = await res.json();
+                window.location.href = `/attività/?id=${json.attività._id}`;
+            } else {
+                let json = await res.json();
+                alert(json);
+            }
+        });
+
+        // action prevent
+        e.preventDefault();
     });
 });
