@@ -19,7 +19,7 @@ function getCookie(name) {
     }
     return null;
 }
-function eraseCookie(name) {   
+function eraseCookie(name) {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
@@ -53,13 +53,13 @@ $(() => {
         if(id != null) {
             $('.nav-item-autenticato').removeClass('hidden');
             $('#login').attr('href', `/profilo/`).attr('data-bs-title', 'Profilo utente');
-            $('#listaPreferiti').attr('href', `/lista?id=${id}`);
+            $('#listaPreferiti').attr('href', `/lista/?id=${id}`);
         }
         if(ruolo() == 'amministratore') {
             $('#creaAttivita').text('Crea attività');
             $('.nav-item-amministratore').removeClass('hidden');
         }
-        
+
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     });

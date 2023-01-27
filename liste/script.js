@@ -31,7 +31,7 @@ $(()=>{
                         </div>
                         <img src="https://picsum.photos/700/300" class="card-img-top" referrerpolicy="no-referrer" alt="Immagine della lista"></img>
                         <div class="card-body text-center">
-                            <a href="/lista?id=${lista._id}" class="btn btn-primary">Vai alla lista</a>
+                            <a href="/lista/?id=${lista._id}" class="btn btn-primary">Vai alla lista</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ $(()=>{
     // Aggiungi lista
     $('#crea').on('submit', (e) => {
         var nome = $('#nome').val();
-        
+
         fetch(`${URL}/liste`, {
             method: 'POST',
             headers: {
@@ -53,8 +53,9 @@ $(()=>{
         })
         .then(response => response.json())
         .then(data => {
-            if(data.code == 201) {
-                window.location.href = `/lista?id=${data._id}`;
+            //console.log(data);
+            if(data.code == 201 || data.codice == 201) {
+                window.location.href = `/lista/?id=${data?.lista?._id}`;
             } else {
                 $('#modalErrore .modal-body').text(JSON.stringify(data));
                 $('#modalErrore').modal('show');
