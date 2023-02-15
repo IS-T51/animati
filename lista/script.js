@@ -81,12 +81,12 @@ $(()=>{
         $('#modalElimina').modal('show');
     })
 
-    $('#esportaJSON').click(()=>{
+    /*$('#esportaJSON').click(()=>{
         location.href=`/lista/esporta?id=${id}&formato=json`
     })
 
     $('#esportaPDF').click(()=>{
         location.href=`/lista/esporta?id=${id}&formato=pdf`
-    })
+    })*/
 
 })

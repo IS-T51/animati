@@ -10,17 +10,22 @@ $(()=>{
             Authorization: `Bearer ${getCookie('token')}`
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        if(data.length == 0) {
-            $('#liste').append(`
-                <div class="col-12">
-                    <div class="alert alert-warning" role="alert">
-                        Nessuna lista trovata
-                    </div>
-                </div>
-            `)
+    .then(async response => response.status != 204 ? [response.status, await response.json()] : [response.status, null])
+    .then(([status, data]) => {
+        if(status == 204) {
+            $('#caricamento').hide();
+            $('#errore').text('Nessuna lista trovata');
+            return
         }
+        if(status >= 400) {
+            $('#caricamento').hide();
+            $('#errore').text('Errore '+status);
+            $('#errore').after($('<p class="text-muted mb-1">').text(data.message));
+            return
+        }
+
+        // 200:
+        $('#loading').hide();
         data.sort((a, b) => a.nome.localeCompare(b.nome))
         .forEach((lista) => {
             $('#liste').append(`
