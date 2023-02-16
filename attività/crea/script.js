@@ -26,7 +26,7 @@ Puoi utilizzare il linguaggio **Markdown** per formattare il testo.
 1. Se necessario,
 2. puoi inserire
 3. delle regole
-    
+
 ### Ulteriori informazioni
 Inserisci qui eventuali informazioni aggiuntive.`);
 
@@ -71,7 +71,7 @@ Inserisci qui eventuali informazioni aggiuntive.`);
             let collegamenti = $('#collegamenti').children().map((i, e) => {
                 let link = $(e).find('a').attr('href');
                 let nome = $(e).find('a').text();
-                return { link, nome };  
+                return { link, nome };
             }).get();
 
             let data = {
@@ -101,9 +101,10 @@ Inserisci qui eventuali informazioni aggiuntive.`);
                 },
                 body: JSON.stringify(data)
             }).then(async (res) => {
-                if (res.status == 200) {
+                if (res.status == 201) {
                     let json = await res.json();
-                    window.location.href = `/attivit%C3%A0/?id=${json._id}`;
+                    //console.log(json);
+                    window.location.href = `/attivit%C3%A0/?id=${json.attività._id}`;
                 } else {
                     let json = await res.json();
                     $('#errore').text(JSON.stringify(json));

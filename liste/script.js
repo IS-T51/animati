@@ -56,10 +56,11 @@ $(()=>{
             },
             body: JSON.stringify({nome})
         })
-        .then(response => response.json())
-        .then(data => {
+        .then(async response => [response.status, await response.json()])
+        .then(([status, data]) => {
+            //console.log(status);
             //console.log(data);
-            if(data.code == 201 || data.codice == 201) {
+            if(status == 201) {
                 window.location.href = `/lista/?id=${data?.lista?._id}`;
             } else {
                 $('#modalErrore .modal-body').text(JSON.stringify(data));
