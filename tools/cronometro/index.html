@@ -28,6 +28,24 @@
     <h1>Cronometro</h1><br/>
     <a href="/">Homepage</a><br/>
     <a href="..">Indietro</a>
+    <br/>
+    <div class="cronometro">
+      <div class="container">
+        <button id="startStopButton" type="button" class="btn btn-primary">Avvia</button>
+        <button id="partialButton" type="button" class="btn btn-primary" disabled="disabled">Parziale</button>
+      </div>
+      <br/>
+      <br/>
+      <div class="container"><div id="counter">00:00:00</div></div>
+      <br/>
+      <br/>
+      <div class="container">
+        <h3 id="partialsTitle" style="display: none;">Parziali:</h3>
+        <div id="partials"></div>
+      </div>
+      <br/>
+      <br/>
+    </div>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
