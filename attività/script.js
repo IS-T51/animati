@@ -20,7 +20,7 @@ $(() => {
         .then(([status, data]) => {
             $('#caricamento').hide();
             if(status >= 400) {
-                if (res.status == 401 && _id()) {
+                if (status == 401 && _id()) {
                     let popup = window.open('/logout/', '_blank');
                     popup.onload = popup.close();
                 }

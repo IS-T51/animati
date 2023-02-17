@@ -20,9 +20,9 @@ $(() => {
         .then(([status, data]) => {
             $('#caricamento').hide();
             if (status >= 400) {
-                if (res.status == 401 && _id()) {
-                   let popup = window.open('/logout/', '_blank');
-                   popup.onload = popup.close();
+                if (status == 401 && _id()) {
+                    let popup = window.open('/logout/', '_blank');
+                    popup.onload = popup.close();
                 }
                 $('#errore').text('Errore ' + status);
                 $('#errore').after($('<p class="text-muted mb-1">').text(data.message));
@@ -62,8 +62,8 @@ $(() => {
                 confermaElimina.off('click');
                 confermaElimina.on('click', () => {
                     var index = confermaElimina.attr('data-bs-index');
-                    console.log(index)
                     var removeUrl = index == -1 ? `${URL}/lista/${id}` : `${URL}/lista/${id}/${index}`;
+                    $('#modalElimina').modal('hide');
 
                     fetch(removeUrl, {
                             method: 'DELETE',
@@ -71,15 +71,23 @@ $(() => {
                                 Authorization: `Bearer ${getCookie('token')}`
                             }
                         })
-                        .then((response) => response.json())
-                        .then((data) => {
+                        .then(async response => response.status != 204 ? [response.status, await response.json()] : [response.status, null])
+                        .then(([status, data]) => {
+
+                            if (status >= 400) {
+                                if (status == 401 && _id()) {
+                                    let popup = window.open('/logout/', '_blank');
+                                    popup.onload = popup.close();
+                                }
+                                alert('Errore ' + status+ '\n' +JSON.stringify(data));
+                                return
+                            }
+
+                            // 200:
                             if (index == -1) location.href = '/liste';
                             else location.reload();
                         })
                 })
-            }).catch((error) => {
-                $('#caricamento').hide();
-                $('#errore').text('Errore: ' + error);
             })
 
             if (id == _id()) $('#elimina').attr('disabled', true);
