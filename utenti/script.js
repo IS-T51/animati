@@ -1,24 +1,35 @@
 // Script per la pagina `/utenti`
 
-$(()=>{
-    fetch(`${URL}/utenti`,{
-        headers: {
-            Authorization: `Bearer ${getCookie('token')}`
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data.length == 0) {
-            $('#catautentilogo').append(`
+$(() => {
+    fetch(`${URL}/utenti`, {
+            headers: {
+                Authorization: `Bearer ${getCookie('token')}`
+            }
+        })
+        .then(async response => response.status != 204 ? [response.status, await response.json()] : [response.status, null])
+        .then(([status, data]) => {
+            $('#caricamento').hide();
+            if (status >= 400) {
+                if (res.status == 401 && _id()) {
+                    let popup = window.open('/logout/', '_blank');
+                    popup.onload = popup.close();
+                }
+                $('#errore').text('Errore ' + status);
+                $('#errore').after($('<p class="text-muted mb-1">').text(data.message));
+                return
+            }
+            
+            if (data.length == 0) {
+                $('#catautentilogo').append(`
                 <div class="col-12">
                     <div class="alert alert-warning" role="alert">
                         Nessun utente trovato
                     </div>
                 </div>
             `)
-        }
-        data.forEach((utente) => {
-            $('#utenti').append(`
+            }
+            data.forEach((utente) => {
+                $('#utenti').append(`
                 <div class="col col-md-6 col-lg-4 col-xl-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
@@ -33,25 +44,25 @@ $(()=>{
                     </div>
                 </div>
             `)
-        })
+            })
 
-        $('.cambiaRuolo').click(function() {
-            const utente = $(this).attr('utente');
-            const ruolo = $(this).attr('ruolo');
-            let nuovoRuolo = ruolo == 'autenticato' ? 'amministratore' : 'autenticato';
-            fetch(`${URL}/utente/${utente}?ruolo=${nuovoRuolo}`, {
-                method: 'PATCH',
-                headers: {
-                    Authorization: `Bearer ${getCookie('token')}`
-                }
-            }).finally(() => {
-                location.reload();
+            $('.cambiaRuolo').click(function () {
+                const utente = $(this).attr('utente');
+                const ruolo = $(this).attr('ruolo');
+                let nuovoRuolo = ruolo == 'autenticato' ? 'amministratore' : 'autenticato';
+                fetch(`${URL}/utente/${utente}?ruolo=${nuovoRuolo}`, {
+                    method: 'PATCH',
+                    headers: {
+                        Authorization: `Bearer ${getCookie('token')}`
+                    }
+                }).finally(() => {
+                    location.reload();
+                })
+            })
+
+            $('.catalogoAutore').click(function () {
+                const utente = $(this).attr('utente');
+                window.location.href = `/catalogo?autore=${utente}`;
             })
         })
-
-        $('.catalogoAutore').click(function() {
-            const utente = $(this).attr('utente');
-            window.location.href = `/catalogo?autore=${utente}`;
-        })
-    })
 });

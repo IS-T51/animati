@@ -12,14 +12,25 @@ $(() => {
     }
 
     fetch(`${URL}/attivita/${id}`, {
-        headers: {
-            Authorization: `Bearer ${getCookie('token')}`
-        }
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            $('#errore').hide();
+            headers: {
+                Authorization: `Bearer ${getCookie('token')}`
+            }
+        })
+        .then(async response => response.status != 204 ? [response.status, await response.json()] : [response.status, null])
+        .then(([status, data]) => {
             $('#caricamento').hide();
+            if(status >= 400) {
+                if (res.status == 401 && _id()) {
+                    let popup = window.open('/logout/', '_blank');
+                    popup.onload = popup.close();
+                }
+                $('#errore').text('Errore '+status);
+                $('#errore').after($('<p class="text-muted mb-1">').text(data.message));
+                return
+            }
+    
+            // 200:
+            $('#errore').hide();
 
             $('#informazioni_titolo').text(data.informazioni.titolo).show();
             $('#banner').attr('src', data.banner).show();
@@ -47,10 +58,10 @@ $(() => {
         });
 
     fetch(`${URL}/liste`, {
-        headers: {
-            Authorization: `Bearer ${getCookie('token')}`
-        }
-    })
+            headers: {
+                Authorization: `Bearer ${getCookie('token')}`
+            }
+        })
         .then((response) => response.json())
         .then((data) => {
             data.sort((a, b) => a.nome.localeCompare(b.nome))
@@ -58,13 +69,13 @@ $(() => {
                     var aggiungi = $(`<li><a class="dropdown-item" href="#">${lista.nome}</a></li>`);
                     aggiungi.on('click', () => {
                         fetch(`${URL}/lista/${lista._id}?attivita=${id}`, {
-                            method: 'POST',
-                            headers: {
-                                Authorization: `Bearer ${getCookie('token')}`
-                            }
-                        }).then((response) => {
-                            return response.json()
-                        })
+                                method: 'POST',
+                                headers: {
+                                    Authorization: `Bearer ${getCookie('token')}`
+                                }
+                            }).then((response) => {
+                                return response.json()
+                            })
                             .then((data) => {
                                 window.location.href = `/lista/?id=${lista._id}`;
                             })
@@ -81,11 +92,11 @@ $(() => {
 
     $('#preferiti').on('click', () => {
         fetch(`${URL}/lista/${_id()}?attivita=${id}`, {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${getCookie('token')}`
-            }
-        }).then((response) => response.json())
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${getCookie('token')}`
+                }
+            }).then((response) => response.json())
             .then((data) => {
                 $('#preferiti').addClass('invisible');
             })
@@ -93,10 +104,10 @@ $(() => {
 
     // Controlla se l'attività è nei preferiti
     fetch(`${URL}/lista/${_id()}`, {
-        headers: {
-            Authorization: `Bearer ${getCookie('token')}`
-        }
-    }).then((response) => response.json())
+            headers: {
+                Authorization: `Bearer ${getCookie('token')}`
+            }
+        }).then((response) => response.json())
         .then((data) => {
             // if id is not in the list, enable the button
             var attivita = data['attività'];

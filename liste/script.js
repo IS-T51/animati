@@ -56,15 +56,22 @@ $(()=>{
             },
             body: JSON.stringify({nome})
         })
-        .then(async response => [response.status, await response.json()])
+        .then(async response => response.status != 204 ? [response.status, await response.json()] : [response.status, null])
         .then(([status, data]) => {
-            //console.log(status);
-            //console.log(data);
+            $('#caricamento').hide();
+            if (status >= 400) {
+                if (res.status == 401 && _id()) {
+                   let popup = window.open('/logout/', '_blank');
+                   popup.onload = popup.close();
+                }
+                $('#modalErrore .modal-title').text('Errore ' + status);
+                $('#modalErrore .modal-body').text(data.message);
+                $('#modalErrore').modal('show');
+                return
+            }
+
             if(status == 201) {
                 window.location.href = `/lista/?id=${data?.lista?._id}`;
-            } else {
-                $('#modalErrore .modal-body').text(JSON.stringify(data));
-                $('#modalErrore').modal('show');
             }
         });
         e.preventDefault();

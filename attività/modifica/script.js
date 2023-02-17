@@ -105,6 +105,10 @@ $(document).ready(() => {
                     if (res.status == 200) {
                         window.location.href = `/attivit%C3%A0/?id=${attivita._id}`;
                     } else {
+                        if (res.status == 401 && _id()) {
+                            let popup = window.open('/logout/', '_blank');
+                            popup.onload = popup.close();
+                        }
                         let json = await res.json();
                         alert(json);
                     }

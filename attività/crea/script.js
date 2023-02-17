@@ -106,6 +106,10 @@ Inserisci qui eventuali informazioni aggiuntive.`);
                     //console.log(json);
                     window.location.href = `/attivit%C3%A0/?id=${json.attività._id}`;
                 } else {
+                    if (res.status == 401 && _id()) {
+                        let popup = window.open('/logout/', '_blank');
+                        popup.onload = popup.close();
+                    }
                     let json = await res.json();
                     $('#errore').text(JSON.stringify(json));
                     $('#modalErrore').modal('show');
