@@ -1,1 +1,5 @@
 /* Foglio di stile per la pagina `/tools/timer` */
+
+.numero {
+    padding: 6px 12px;
+}

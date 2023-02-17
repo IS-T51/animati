@@ -1,113 +1,114 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Animati - Tools - Timer</title>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="canonical" href="https://animati.app/" />
-    <link rel="manifest" href="/manifest.webmanifest">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Animati - Tools - Timer</title>
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="style.css">
 
-    <link rel="icon" type="image/png" href="/assets/img/logo96.png" />
-    <meta name="theme-color" content="#ff831c" />
-    <!-- iOS -->
-    <link rel="apple-touch-icon" href="/assets/img/logo96.png" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-status-bar-style" content="black" />
-    <meta name="mobile-web-app-title" content="Animati" />
+  <link rel="canonical" href="https://animati.app/" />
+  <link rel="manifest" href="/manifest.webmanifest">
 
-    <script src="/assets/js/jquery-3.6.1.min.js"></script>
-    <script src="/assets/js/script.js"></script>
-    <script src="script.js"></script>
+  <link rel="icon" type="image/png" href="/assets/img/logo96.png" />
+  <meta name="theme-color" content="#ff831c" />
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="/assets/img/logo96.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-status-bar-style" content="black" />
+  <meta name="mobile-web-app-title" content="Animati" />
+
+  <script src="/assets/js/jquery-3.6.1.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+  <script src="script.js"></script>
 </head>
+
 <body>
-    <h1>Timer</h1><br/>
-    <a href="/">Homepage</a><br/>
-    <a href="..">Indietro</a><br/>
-    <br/>   
-    <div class="timer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="row"><p>ore<p></div>
-            <div class="row counter">
-              <div class="col-md-2">
-                <button class="btn btn-primary" id="hDec">-</button>        
-              </div>
-              <div class="col-md-2">
-                <div id="h"></div>
-              </div>
-              <div class="col-md-2">
-                <button class="btn btn-primary" id="hInc">+</button>
-              </div>
-            </div>
+  <div id="header"></div>
+
+  <div class="container py-5 h-100">
+    <h1>Timer</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <p>ore<p>
+        <div class="row counter">
+          <div class="col-4">
+            <button class="btn btn-primary w-100" id="hDec">-</button>
           </div>
-      
-          <div class="col-md-4">
-            <div class="row"><p>minuti<p></div>
-            <div class="row counter">
-              <div class="col-md-2">
-                <button class="btn btn-primary" id="mDec">-</button>        
-              </div>
-              <div class="col-md-2">
-                <div id="m"></div>
-              </div>
-              <div class="col-md-2">
-                <button class="btn btn-primary" id="mInc">+</button>
-              </div>
-            </div>
+          <div class="col-4 rounded text-center bg-light numero">
+            <div id="h"></div>
           </div>
-      
-          <div class="col-md-4">
-            <div class="row"><p>secondi<p></div>
-            <div class="row counter">
-              <div class="col-md-2">
-                <button class="btn btn-primary" id="sDec">-</button>        
-              </div>
-              <div class="col-md-2">
-                <div id="s"></div>
-              </div>
-              <div class="col-md-2">
-                <button class="btn btn-primary" id="sInc">+</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="container">
-            <button id="button1" type="button" class="btn btn-primary">Avvia</button>
-            <button id="button2" type="button" class="btn btn-primary">Pausa</button><br/>
-        </div>
-        <br/>
-        <br/>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-1">
-              <div class="dropdown">
-                <button id="nome_dropdown" class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled">Suono 1</button>
-                <div class="dropdown-menu" id="menu">
-                  <li><button type="button" class="dropdown-item" id="suono1">Suono1</button></li>
-                  <li><button type="button" class="dropdown-item" id="suono2">Suono2</button></li>
-                  <li><button type="button" class="dropdown-item" id="suono3">Suono3</button></li>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-1">
-              <button id="stop" type="button" class="btn btn-primary" disabled="true">Stop</button>
-            </div>
+          <div class="col-4">
+            <button class="btn btn-primary w-100" id="hInc">+</button>
           </div>
         </div>
       </div>
-      <br/>
-      <br/>
-      <div class="container"><div id="timer"></div></div>
+
+      <div class="col-md-4">
+        <p>minuti<p>
+        <div class="row counter">
+          <div class="col-4">
+            <button class="btn btn-primary  w-100" id="mDec">-</button>
+          </div>
+          <div class="col-4 rounded text-center bg-light numero">
+            <div id="m"></div>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-primary w-100" id="mInc">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <p>secondi<p>
+        <div class="row counter">
+          <div class="col-4">
+            <button class="btn btn-primary w-100" id="sDec">-</button>
+          </div>
+          <div class="col-4 rounded text-center bg-light numero">
+            <div id="s"></div>
+          </div>
+          <div class="col-4">
+            <button class="btn btn-primary w-100" id="sInc">+</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <div/>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <button id="button1" type="button" class="btn btn-primary w-100 mt-2">Avvia</button>
+      </div>
+      <div class="col-md-6">
+        <button id="button2" type="button" class="btn btn-primary w-100 mt-2">Pausa</button><br />
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="dropdown w-100 mt-2">
+          <button id="nome_dropdown" class="btn btn-primary dropdown-toggle w-100" type="button"
+            data-bs-toggle="dropdown" aria-expanded="false">Suono 1</button>
+          <div class="dropdown-menu" id="menu">
+            <li><button type="button" class="dropdown-item  col-3" id="suono1">Suono1</button></li>
+            <li><button type="button" class="dropdown-item" id="suono2">Suono2</button></li>
+            <li><button type="button" class="dropdown-item" id="suono3">Suono3</button></li>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <button id="stop" type="button" class="btn btn-primary w-100 mt-2" disabled="true">Stop</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <div id="timer"></div>
+  </div>
+  <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>

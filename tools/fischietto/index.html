@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Animati - Tools - Fischietto</title>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="canonical" href="https://animati.app/" />
-    <link rel="manifest" href="/manifest.webmanifest">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Animati - Tools - Fischietto</title>
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="style.css">
 
-    <link rel="icon" type="image/png" href="/assets/img/logo96.png" />
-    <meta name="theme-color" content="#ff831c" />
-    <!-- iOS -->
-    <link rel="apple-touch-icon" href="/assets/img/logo96.png" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-status-bar-style" content="black" />
-    <meta name="mobile-web-app-title" content="Animati" />
+  <link rel="canonical" href="https://animati.app/" />
+  <link rel="manifest" href="/manifest.webmanifest">
 
-    <script src="/assets/js/jquery-3.6.1.min.js"></script>
-    <script src="/assets/js/script.js"></script>
-    <script src="script.js"></script>
+  <link rel="icon" type="image/png" href="/assets/img/logo96.png" />
+  <meta name="theme-color" content="#ff831c" />
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="/assets/img/logo96.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-status-bar-style" content="black" />
+  <meta name="mobile-web-app-title" content="Animati" />
+
+  <script src="/assets/js/jquery-3.6.1.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+  <script src="script.js"></script>
 </head>
+
 <body>
-    <h1>Fischietto</h1><br/>
-    <a href="/">Homepage</a><br/>
-    <a href="..">Indietro</a>
-    <br/>   
-    <div class="fischietto">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-1">
-            <div class="dropdown">
-              <button id="nome_dropdown" class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Suono 1</button>
-              <div class="dropdown-menu" id="menu">
-                <li><button type="button" class="dropdown-item" id="suono1">Suono 1</button></li>
-                <li><button type="button" class="dropdown-item" id="suono2">Suono 2</button></li>
-                <li><button type="button" class="dropdown-item" id="suono3">Suono 3</button></li>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-1">
-            <image id="startImage" src="http://4.bp.blogspot.com/-xWGbQVbhz6I/Vcxjt8eFrFI/AAAAAAAAMDg/v1Lp54foBIY/s1600/fisciot.png" height="35dp"></image>
-            <button id="stopButton" type="button" class="btn btn-primary" style="display: none;">Stop</button>
+  <div id="header"></div>
+
+  <div class="container py-5 h-100">
+    <h1>Fischietto</h1>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="dropdown w-100 mt-2">
+          <button id="nome_dropdown" class="btn btn-primary dropdown-toggle w-100" type="button"
+            data-bs-toggle="dropdown" aria-expanded="false">Suono 1</button>
+          <div class="dropdown-menu" id="menu">
+            <li><button type="button" class="dropdown-item  col-3" id="suono1">Suono1</button></li>
+            <li><button type="button" class="dropdown-item" id="suono2">Suono2</button></li>
+            <li><button type="button" class="dropdown-item" id="suono3">Suono3</button></li>
           </div>
         </div>
-        <br/>
-        <br/>
       </div>
+      <div class="col-md-6 mt-2">
+        <button id="stopButton" type="button" class="btn btn-primary w-100" style="display:none">Stop</button>
+      </div>
+      <div class="col-12 mt-4">
+        <butto id="startImage" class="btn btn-primary">
+          <image 
+            src="http://4.bp.blogspot.com/-xWGbQVbhz6I/Vcxjt8eFrFI/AAAAAAAAMDg/v1Lp54foBIY/s1600/fisciot.png"
+            height="35dp"></image>
+        </button>
+      </div>
+
     </div>
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+  </div>
+
+  <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>

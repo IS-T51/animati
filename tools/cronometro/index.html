@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Animati - Tools - Cronometro</title>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="canonical" href="https://animati.app/" />
-    <link rel="manifest" href="/manifest.webmanifest">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Animati - Tools - Cronometro</title>
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="style.css">
 
-    <link rel="icon" type="image/png" href="/assets/img/logo96.png" />
-    <meta name="theme-color" content="#ff831c" />
-    <!-- iOS -->
-    <link rel="apple-touch-icon" href="/assets/img/logo96.png" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-status-bar-style" content="black" />
-    <meta name="mobile-web-app-title" content="Animati" />
+  <link rel="canonical" href="https://animati.app/" />
+  <link rel="manifest" href="/manifest.webmanifest">
 
-    <script src="/assets/js/jquery-3.6.1.min.js"></script>
-    <script src="/assets/js/script.js"></script>
-    <script src="script.js"></script>
+  <link rel="icon" type="image/png" href="/assets/img/logo96.png" />
+  <meta name="theme-color" content="#ff831c" />
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="/assets/img/logo96.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-status-bar-style" content="black" />
+  <meta name="mobile-web-app-title" content="Animati" />
+
+  <script src="/assets/js/jquery-3.6.1.min.js"></script>
+  <script src="/assets/js/script.js"></script>
+  <script src="script.js"></script>
 </head>
+
 <body>
-    <h1>Cronometro</h1><br/>
-    <a href="/">Homepage</a><br/>
-    <a href="..">Indietro</a>
-    <br/>
-    <div class="cronometro">
-      <div class="container">
-        <button id="startStopButton" type="button" class="btn btn-primary">Avvia</button>
-        <button id="partialButton" type="button" class="btn btn-primary" disabled="disabled">Parziale</button>
+  <div id="header"></div>
+
+  <div class="container py-5 h-100">
+    <h1>Cronometro</h1>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <button id="startStopButton" type="button" class="btn btn-primary w-100 mt-2">Avvia</button>
       </div>
-      <br/>
-      <br/>
-      <div class="container"><div id="counter">00:00:00</div></div>
-      <br/>
-      <br/>
-      <div class="container">
-        <h3 id="partialsTitle" style="display: none;">Parziali:</h3>
-        <div id="partials"></div>
+      <div class="col-md-6">
+        <button id="partialButton" type="button" class="btn btn-primary w-100 mt-2" disabled>Parziale</button><br />
       </div>
-      <br/>
-      <br/>
+
+      <div class="col-12 mt-4">
+        <p id="counter">00:00:00
+      </div>
     </div>
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <div class="col-12 mt-4">
+      <h3 id="partialsTitle" style="display: none;">Parziali:</h3>
+      <div id="partials"></div>
+    </div>
+  </div>
+
+  <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>
